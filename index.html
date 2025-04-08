@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KEIMADURA - Sistema de Gestão</title>
+    <link rel="stylesheet" href="Estilos/main.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Seção de Login -->
+    <div id="login-section" class="login-container">
+        <div class="login-logo">
+            <div class="logo-container">
+                <img src="attached_assets/Logo Keimadura 2.png" alt="KEIMADURA Logo" class="logo-img">
+                <div class="logo-text">Sua Melhor Companhia</div>
+            </div>
+        </div>
+        <div class="login-form">
+            <input type="text" id="login-username" placeholder="Nome de usuário">
+            <input type="password" id="login-password" placeholder="Senha">
+            <button class="login-button" onclick="fazerLogin()">Entrar</button>
+            <p id="login-error" style="color: red; text-align: center;"></p>
+        </div>
+    </div>
+
+    <!-- Seção Principal do App -->
+    <div id="app-section" class="hidden">
+        <header>
+            <div class="logo-header">
+                <img src="attached_assets/Logo Keimadura 2.png" alt="KEIMADURA Logo" class="header-logo">
+                <div class="logo-subtitle">Sua Melhor Companhia</div>
+            </div>
+            <div class="user-info">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="user-details">
+                    <span class="user-name" id="header-usuario">Usuário</span>
+                    <span class="user-role" id="header-cargo">Cargo</span>
+                </div>
+                <button class="logout-button" onclick="fazerLogout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+        </header>
+
+        <nav>
+            <ul class="nav-menu">
+                <li class="nav-item active" data-page="vendas">
+                    <i class="fas fa-cash-register"></i>
+                    <span>Vendas</span>
+                </li>
+                <li class="nav-item" data-page="produtos">
+                    <i class="fas fa-box"></i>
+                    <span>Produtos</span>
+                </li>
+                <li class="nav-item" data-page="estoque">
+                    <i class="fas fa-warehouse"></i>
+                    <span>Estoque</span>
+                </li>
+                <li class="nav-item" data-page="financas">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Finanças</span>
+                </li>
+                <li class="nav-item" data-page="informacoes">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Informações</span>
+                </li>
+                <li class="nav-item" data-page="configuracoes">
+                    <i class="fas fa-cog"></i>
+                    <span>Configurações</span>
+                </li>
+            </ul>
+        </nav>
+
+        <main id="content-container">
+            <!-- O conteúdo das páginas será carregado dinamicamente aqui -->
+        </main>
+
+        <footer>
+            <div class="footer-info">
+                <span>&copy; 2023 KEIMADURA - Todos os direitos reservados</span>
+            </div>
+            <div class="footer-version">
+                <span>Versão 1.0.0</span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="Js/main.js"></script>
+    <script src="Js/impressora.js"></script>
+    <script src="Js/pagamento.js"></script>
+    <script src="Js/fidelidade.js"></script>
+</body>
+</html>

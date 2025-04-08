@@ -1,0 +1,49 @@
+CREATE TABLE clientes (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    nome TEXT NOT NULL,
+    telefone TEXT NOT NULL,
+    email TEXT NOT NULL,
+    endereco TEXT NOT NULL,
+    cidade TEXT NOT NULL,
+    estado TEXT NOT NULL,
+    cep TEXT NOT NULL,
+    data_nascimento DATE NOT NULL,
+    sexo TEXT NOT NULL,
+    tipo_cliente TEXT NOT NULL,
+    senha TEXT NOT NULL
+);
+
+CREATE TABLE produtos (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    nome TEXT NOT NULL,
+    categoria TEXT NOT NULL,
+    preco REAL NOT NULL,
+    quantidade INTEGER NOT NULL,
+    status TEXT NOT NULL
+);
+
+CREATE TABLE vendas (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    cliente_id INTEGER NOT NULL,
+    data_venda DATE NOT NULL,
+    total REAL NOT NULL,
+    FOREIGN KEY (cliente_id) REFERENCES clientes(id)
+);
+
+CREATE TABLE itens_venda (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    venda_id INTEGER NOT NULL,
+    produto_id INTEGER NOT NULL,
+    quantidade INTEGER NOT NULL,
+    preco_unitario REAL NOT NULL,
+    FOREIGN KEY (venda_id) REFERENCES vendas(id),
+    FOREIGN KEY (produto_id) REFERENCES produtos(id)
+);
+
+CREATE TABLE pagamentos (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    venda_id INTEGER NOT NULL,
+    metodo_pagamento TEXT NOT NULL,
+    valor REAL NOT NULL,
+    FOREIGN KEY (venda_id) REFERENCES vendas(id)
+);
